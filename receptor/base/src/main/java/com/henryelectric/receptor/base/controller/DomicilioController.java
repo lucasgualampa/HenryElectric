@@ -53,7 +53,7 @@ public class DomicilioController {
 
     @PostMapping("/{id}/mediciones")
     @Operation(summary = "las mediciones entre fechas por domicilio")
-    public List<MedidaR> getMedicionesBetweenDates(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
-        return domicilioService.getConsumoBetweenDates(id, bodyFechas);
+    public List<MedidaR> getMedicionesBetweenDate(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
+        return domicilioService.getConsumoBetweenDate(id, bodyFechas);
     }
 }
