@@ -1,9 +1,6 @@
 package com.henryelectric.receptor.base.controller;
 
-import com.henryelectric.receptor.base.model.BodyFechas;
-import com.henryelectric.receptor.base.model.Domicilio;
-import com.henryelectric.receptor.base.model.Factura;
-import com.henryelectric.receptor.base.model.MedidaR;
+import com.henryelectric.receptor.base.model.*;
 import com.henryelectric.receptor.base.service.DomicilioService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +51,13 @@ public class DomicilioController {
     @PostMapping("/{id}/mediciones")
     @Operation(summary = "las mediciones entre fechas por domicilio")
     public List<MedidaR> getMedicionesBetweenDate(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
+        return domicilioService.getMedicionesBetweenDate(id, bodyFechas);
+    }
+
+    @PostMapping("/{id}/consumo")
+    @Operation(summary = "el consumo entre fechas por domicilio")
+    public Consumo getConsumoBetweenDates(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
         return domicilioService.getConsumoBetweenDate(id, bodyFechas);
     }
+
 }

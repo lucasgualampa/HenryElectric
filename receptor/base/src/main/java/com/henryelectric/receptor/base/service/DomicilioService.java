@@ -71,7 +71,7 @@ public class DomicilioService {
                 break;
             case "02":
                 diaInicial = "31";
-                if (Integer.parseInt(año) % 4 == 0) {
+                if (Integer.parseInt(anio) % 4 == 0) {
                     diaFinal = "29";
                 } else {
                     diaFinal = "28";
@@ -79,7 +79,7 @@ public class DomicilioService {
                 mesAnterior = "01";
                 break;
             case "03":
-                if (Integer.parseInt(año) % 4 == 0) {
+                if (Integer.parseInt(anio) % 4 == 0) {
                     diaInicial = "29";
                 } else {
                     diaInicial = "28";
@@ -141,15 +141,15 @@ public class DomicilioService {
 
         Consumo consumo = medidaService.getConsumoBetweenDate(idMedidor, bodyFechas, domicilio.getTarifa());
 
-        Factura factura = new Factura(domicilio.getDireccion(), domicilio.getTarifa(), domicilio.getCliente(), idMedidor, consumo.getMedidaInicial(), consumo.getFechaInicial(), consumo.getMedidaFinal(), consumo.getFechaFinal(), consumo.getKwh(), consumo.getCosto());
+        Factura factura = new Factura(domicilio.getDireccion(), domicilio.getTarifa(), consumo.getMedidaInicial(),consumo.getMedidaFinal(), consumo.getKwh(), consumo.getCosto(), domicilio.getCliente(), idMedidor, consumo.getFechaInicial(), consumo.getFechaFinal());
 
         return factura;
     }
 
-    public List<MedidaR> getMedidasBetweenDate(Integer id, BodyFechas bodyFechas){
+    public List<MedidaR> getMedicionesBetweenDate(Integer id, BodyFechas bodyFechas){
         Domicilio domicilio = getDomicilio(id);
         Integer idMedidor = domicilio.getMedidor().getId();
-        return medidaService.getMedidasBetweenDate(idMedidor, bodyFechas);
+        return medidaService.getMedicionesBetweenDate(idMedidor, bodyFechas);
     }
 
     public Consumo getConsumoBetweenDate(Integer id, BodyFechas bodyFechas){

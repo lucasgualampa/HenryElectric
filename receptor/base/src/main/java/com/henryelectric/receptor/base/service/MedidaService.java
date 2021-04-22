@@ -28,15 +28,16 @@ public class MedidaService {
 
     public List<MedidaR> getMedicionesBetweenDate(Integer id, BodyFechas bodyFechas){
         List<MedidaR> listMediciones = medidaRepository.findByDateBetween(id, bodyFechas.getFrom(), bodyFechas.getTo());
+        return  listMediciones;
     }
 
     public Consumo getConsumoBetweenDate(Integer id, BodyFechas bodyFechas, Float tarifa){
         List<MedidaR> listMediciones1 = medidaRepository.findByDateBetween(id, bodyFechas.getFrom(), bodyFechas.getFrom() + " 23:59:59.999");
         List<MedidaR> listMediciones2 = medidaRepository.findByDateBetween(id, bodyFechas.getTo(), bodyFechas.getTo() + " 23:59:59.999");
 
-        Float consumo = listMediciones2.get(listMediciones2.size()-1).getValor() - listMediciones1.get(listMediciones1.size() - 1).getValor();
+        Float consumo = listMediciones2.get(listMediciones2.size()-1).getValor() - listMediciones1.get(listMediciones1.size()-1).getValor();
         Float costo = consumo * tarifa;
-        return new Consumo(consumo, costo, listMediciones1.get(listMediciones1.size() - 1).getFecha(), listMediciones1.get(listMediciones1.size() - 1).getValor(), listMediciones2.get(listMediciones2.size() - 1).getFecha(), listMediciones2.get(listMediciones2.size() - 1).getValor());
+        return new Consumo(consumo, costo, listMediciones1.get(listMediciones1.size()-1).getValor(), listMediciones2.get(listMediciones2.size()-1).getValor(), listMediciones1.get(listMediciones1.size()-1).getFecha(), listMediciones2.get(listMediciones2.size()-1).getFecha());
     }
 
     public MedidaR addMedida(MedidaR medida){

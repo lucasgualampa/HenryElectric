@@ -31,6 +31,7 @@ public class ClienteController {
     @Operation(summary = "crea un cliente")
     public String addCliente(@RequestBody Cliente cliente){
         Cliente newCliente = clienteService.addCliente(cliente);
+        return ("se creo cliente: " + newCliente);
     }
 
     @DeleteMapping("/{id}")
