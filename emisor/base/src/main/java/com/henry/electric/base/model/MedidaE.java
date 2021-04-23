@@ -20,6 +20,8 @@ public class MedidaE {
     private Float valor;
     private Date fecha;
 
+
+
     // constructor sin id porq se autogenera
     public MedidaE(Float valor, Date fecha) {
         this.valor = valor;

@@ -16,7 +16,7 @@ public class MedidorController {
     @Autowired
     private MedidorService medidorService;
 
-    @Autowired
+    @GetMapping
     @Operation(summary = "Todos los medidores")
     public List<MedidorE> getMedidores(){
         return medidorService.getMedidores();

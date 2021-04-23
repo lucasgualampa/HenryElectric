@@ -92,7 +92,7 @@ public class MedidorService {
             date = new Date();
             medida = new MedidaE(valor, date);
         } else {
-            valor = getMedidor(1111).getMediciones().get(getMedidor(1111).getMediciones().size()-1).getValor() + 5.0f;
+            valor = getMedidor(1111).getMediciones().get(getMedidor(1111).getMediciones().size()-1).getValor() + 0.5f;
             Date date2 = getMedidor(1111).getMediciones().get(getMedidor(1111).getMediciones().size()-1).getFecha();
             Calendar calendario = Calendar.getInstance();
             calendario.setTime(date2);
