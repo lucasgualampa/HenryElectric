@@ -1,7 +1,7 @@
 # HenryElectric
 backend en JAVA para el M2
 
-# Puntos a seguir
+# Consignas
 1.    Crear repo github y compartir con colaboradores
 2.    Crear dos proyectos con Initializr (medidor y receptor)
 3.    Emisor 8001(medidor) : crear modelos y metodo de envio con fallback persistente
