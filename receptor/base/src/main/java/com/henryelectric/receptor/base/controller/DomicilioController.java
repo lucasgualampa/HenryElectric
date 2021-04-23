@@ -34,11 +34,18 @@ public class DomicilioController {
         return ("Se creo el domicilio: " + newDomicilio);
     }
 
-    @PutMapping("/{id}/cliente/{idCliente}")
-    @Operation(summary = "crea un cliente en domicilio")
+    @PutMapping("/{id}/clientes/{idCliente}")
+    @Operation(summary = "agrega un cliente al domicilio")
     private String addCliente(@PathVariable Integer id, @PathVariable Integer idCliente){
         domicilioService.addClienteToDomicilio(id, idCliente);
-        return ("Creado cliente con id: " + idCliente);
+        return ("se agrego cliente con id: " + idCliente);
+    }
+
+    @PutMapping("{id}/medidores/{idMedidor}")
+    @Operation(summary = "Agrega un medidor al domicilio")
+    private String addMedidor(@PathVariable Integer id, @PathVariable Integer idMedidor){
+        domicilioService.addMedidorToDomicilio(id, idMedidor);
+        return ("Se agrego el medidor con id: " + idMedidor);
     }
 
     @DeleteMapping("/{id}")

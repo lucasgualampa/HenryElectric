@@ -26,11 +26,11 @@ services:
 
   mysql:
     image: mysql:8.0.22
-    container_name: mysql
+    container_name: mysqlHenryElectric
     restart: always
     command: mysqld --default-authentication-plugin=mysql_native_password
     ports:
       - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: henry
+      MYSQL_DATABASE: henryelectric

@@ -43,7 +43,7 @@ public class MedidorService {
             editedMedidor.setMarca(auxMedidor.getMarca());
         }
         if (medidor.getModelo() != null){
-            editedMedidor.setModelo(auxMedidor.getModelo());
+            editedMedidor.setModelo(medidor.getModelo());
         } else {
             editedMedidor.setModelo(auxMedidor.getModelo());
         }
