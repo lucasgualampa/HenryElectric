@@ -1,5 +1,5 @@
 # HenryElectric
-backend in java for M2
+backend en JAVA para el M2
 
 # Puntos a seguir
 1.    Crear repo github y compartir con colaboradores
@@ -10,3 +10,13 @@ backend in java for M2
 6.    Levantar receptor, crear domicilio, medidor, cliente
 7.    Levantar medidor, enviar medidas al receptor
 8.    Consultar desde postman endpoints para factura y consumos
+
+# Instrucciones
+- clonar repo
+- levantar mysql con docker : docker-compose up
+- ejecutar BaseApplication de emisor y receptor para levantar el back
+- testear endpoints!
+
+# Endpoints(swagger)
+http://localhost:8081/swagger.html
+http://localhost:8082/swagger.html
